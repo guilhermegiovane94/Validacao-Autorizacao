@@ -9,9 +9,7 @@ namespace DesktopApp1
 {
     class FuncoesGlobais
     {
-        
-
-        public static string getLogPath()
+        public static string retornaRoot()
         {
             //caminho para pasta bin do projeto  
             var diretorioBin = Environment.CurrentDirectory;
@@ -24,37 +22,29 @@ namespace DesktopApp1
                 newPath[i] = oldpath[i];
             }
             //formata caminho
-            string tempNewPath = String.Join("\\", newPath);
+            return  String.Join("\\", newPath);
+        }
 
-            bool exists = System.IO.Directory.Exists($"{tempNewPath}\\LOGS");
+        public static void checkDirectory(string path,string directoryName)
+        {
+            bool exists = System.IO.Directory.Exists($"{path}\\{directoryName}");
 
             if (!exists)
-                System.IO.Directory.CreateDirectory($"{tempNewPath}\\LOGS");
+                System.IO.Directory.CreateDirectory($"{path}\\{directoryName}");
+        }
 
-            return $"{tempNewPath}\\LOGS\\";
+        public static string getLogPath()
+        {
+            string path = retornaRoot();
+
+            return $"{path}\\LOGS\\";
         }
 
         public static string getEvidenciaPath()
         {
-            //caminho para pasta bin do projeto  
-            var diretorioBin = Environment.CurrentDirectory;
-            string[] oldPath = diretorioBin.Split('\\');
-            //retorna duas pastas para pasta raiz do projeto
-            string[] newPath = new string[oldPath.Length - 2];
-            for (var i = 0; i < (oldPath.Length - 2); i++)
-            {
-                //cria um novo caminho para pasta raiz
-                newPath[i] = oldPath[i];
-            }
-            //formata caminho
-            string tempNewPath = String.Join("\\", newPath);
+            string path = retornaRoot();
 
-            bool exists = System.IO.Directory.Exists($"{tempNewPath}\\EVIDENCIAS");
-
-            if (!exists)
-                System.IO.Directory.CreateDirectory($"{tempNewPath}\\EVIDENCIAS");
-
-            return $"{tempNewPath}\\EVIDENCIAS\\";
+            return $"{path}\\EVIDENCIAS\\";
         }
 
         public static string tipoBit(string linha, int length)

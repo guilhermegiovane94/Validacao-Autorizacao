@@ -68,6 +68,14 @@ namespace DesktopApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            //check se existe diretorios se nao cria
+            //diretorio EVIDENCIAS
+            string path = FuncoesGlobais.retornaRoot();
+            FuncoesGlobais.checkDirectory(path,"EVIDENCIAS");
+            //diretorio LOGS
+            FuncoesGlobais.checkDirectory(path, "LOGS");
+
             cmbVERSION.SelectedIndex = 0;
             //DateTime.UtcNow baseado no fuso horario
             string date = DateTime.Now.ToString("yy-MM-dd");
