@@ -28,3 +28,13 @@ C:\Users\Familia Sampaio\Documents\GitHub\Validacao_Autorizacao\DesktopApp1\obj\
 C:\Users\Familia Sampaio\Documents\GitHub\Validacao_Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.csproj.CoreCompileInputs.cache
 C:\Users\Familia Sampaio\Documents\GitHub\Validacao_Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.exe
 C:\Users\Familia Sampaio\Documents\GitHub\Validacao_Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.pdb
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\bin\Debug\DesktopApp1.exe.config
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\bin\Debug\DesktopApp1.exe
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\bin\Debug\DesktopApp1.pdb
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.csprojAssemblyReference.cache
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.Form1.resources
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.Properties.Resources.resources
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.csproj.GenerateResource.cache
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.csproj.CoreCompileInputs.cache
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.exe
+C:\Users\Familia Sampaio\Documents\GitHub\Validacao-Autorizacao\DesktopApp1\obj\Debug\DesktopApp1.pdb

@@ -14,35 +14,47 @@ namespace DesktopApp1
         public static string getLogPath()
         {
             //caminho para pasta bin do projeto  
-            var CurrentDirectory = Environment.CurrentDirectory;
-            string[] path = CurrentDirectory.Split('\\');
+            var diretorioBin = Environment.CurrentDirectory;
+            string[] oldpath = diretorioBin.Split('\\');
             //retorna duas pastas para pasta raiz do projeto
-            string[] newPath = new string[path.Length - 2];
-            for (var i = 0; i < (path.Length - 2); i++)
+            string[] newPath = new string[oldpath.Length - 2];
+            for (var i = 0; i < (oldpath.Length - 2); i++)
             {
                 //cria um novo caminho para pasta raiz
-                newPath[i] = path[i];
+                newPath[i] = oldpath[i];
             }
             //formata caminho
-            string temp = String.Join("\\", newPath);
-            return String.Format("{0}\\LOGS\\", temp);
+            string tempNewPath = String.Join("\\", newPath);
+
+            bool exists = System.IO.Directory.Exists($"{tempNewPath}\\LOGS");
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory($"{tempNewPath}\\LOGS");
+
+            return $"{tempNewPath}\\LOGS\\";
         }
 
         public static string getEvidenciaPath()
         {
             //caminho para pasta bin do projeto  
-            var CurrentDirectory = Environment.CurrentDirectory;
-            string[] path = CurrentDirectory.Split('\\');
+            var diretorioBin = Environment.CurrentDirectory;
+            string[] oldPath = diretorioBin.Split('\\');
             //retorna duas pastas para pasta raiz do projeto
-            string[] newPath = new string[path.Length - 2];
-            for (var i = 0; i < (path.Length - 2); i++)
+            string[] newPath = new string[oldPath.Length - 2];
+            for (var i = 0; i < (oldPath.Length - 2); i++)
             {
                 //cria um novo caminho para pasta raiz
-                newPath[i] = path[i];
+                newPath[i] = oldPath[i];
             }
             //formata caminho
-            string temp = String.Join("\\", newPath);
-            return String.Format("{0}\\EVIDENCIAS\\", temp);
+            string tempNewPath = String.Join("\\", newPath);
+
+            bool exists = System.IO.Directory.Exists($"{tempNewPath}\\EVIDENCIAS");
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory($"{tempNewPath}\\EVIDENCIAS");
+
+            return $"{tempNewPath}\\EVIDENCIAS\\";
         }
 
         public static string tipoBit(string linha, int length)
