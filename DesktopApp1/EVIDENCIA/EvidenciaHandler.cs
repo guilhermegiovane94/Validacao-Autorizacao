@@ -10,10 +10,11 @@ namespace DesktopApp1
     class EvidenciaHandler
     {
         List<string> linhas = new List<string>();
+        bool retorno = false;
 
         public bool ReadDirectory()
         {
-            bool retorno = false;
+            
             //in directory find .seq files
             foreach (string filePath in Directory.GetFiles(FuncoesGlobais.getLogPath(), "*.SEQ"))
             {
@@ -32,25 +33,17 @@ namespace DesktopApp1
                         {
                             //salva na variavel cada linha do arquivo
                             string linha = reader.ReadLine();
-
-
-                            if (linha.Contains(FuncoesGlobais.getFullNSU()))
+                            FillFile(linha,VariaveisGlobais.nsu,reader,!VariaveisGlobais.is400,filePath);
+                            if (VariaveisGlobais.is400)
                             {
-                                int index = linha.LastIndexOf(VariaveisGlobais.nsu);
-                                if (linha.Substring(index, 7).Trim() == VariaveisGlobais.nsu.Trim()) {
-                                    while (!linha.Contains(VariaveisGlobais.breakLine))
-                                    {
-                                        if (linha.Contains(FuncoesGlobais.getFullNSU()))
-                                            linhas.Add("");
-                                        //adiciona a lista as linhas da transacao ate ACTR
-                                        linhas.Add(linha);
-                                        //get next line
-                                        linha = reader.ReadLine();
-                                    }
-                                    generateFile(filePath);
-                                    retorno = true;
-                                }                                
+                                char[] oldNSU = VariaveisGlobais.nsu.ToCharArray();
+                                char temp = oldNSU.Last();
+                                temp++;
+                                oldNSU[oldNSU.Length - 1] = temp;
+                                string newNSU = new string(oldNSU);
+                                FillFile(linha, newNSU, reader, VariaveisGlobais.is400, filePath);
                             }
+                            
                         }
                     }
                 }
@@ -74,6 +67,33 @@ namespace DesktopApp1
                 }
 
                 // lista.Clear();
+            }
+        }
+
+        public void FillFile(string linha,string nsu,StreamReader reader, bool geraFile, string filePath)
+        {
+            if (linha.Contains(FuncoesGlobais.getFullNSU(nsu)))
+            {
+                int index = linha.LastIndexOf(nsu);
+                if (linha.Substring(index, 7).Trim() == nsu.Trim())
+                {
+                    while (!linha.Contains(VariaveisGlobais.breakLine))
+                    {
+                        if (linha.Contains(FuncoesGlobais.getFullNSU(nsu)))
+                            linhas.Add("");
+                        //adiciona a lista as linhas da transacao ate ACTR
+                        linhas.Add(linha);
+                        //get next line
+                        linha = reader.ReadLine();
+                    }
+                    if (geraFile)
+                    {
+                        generateFile(filePath);
+                       
+                    }
+                    retorno = true;
+
+                }
             }
         }
     }

@@ -111,8 +111,12 @@ namespace DesktopApp1
         }
 
 
-        public static string getFullNSU()
+        public static string getFullNSU(string nsu = null)
         {
+            if(nsu != null)
+            {
+                return String.Concat(VariaveisGlobais.fullnsu, nsu);
+            }
             return String.Concat(VariaveisGlobais.fullnsu, VariaveisGlobais.nsu);
         }
 

@@ -24,8 +24,12 @@ namespace DesktopApp1
         {
             VariaveisGlobais.nsu = txtNSU.Text;
             VariaveisGlobais.fullnsu = txtFULL_NSU.Text;
-            VariaveisGlobais.breakLine = txtBREAK_LINE.Text;
+
+            //VariaveisGlobais.breakLine = txtBREAK_LINE.Text;
+            VariaveisGlobais.breakLine = cmbBreakLine.SelectedItem.ToString();
+
             VariaveisGlobais.dataLog = txtDATA_LOG.Text;
+            VariaveisGlobais.is400 = check400.Checked;
 
             if (txtLOG_PATH != null)
                 VariaveisGlobais.logPath = txtLOG_PATH.Text;
@@ -51,7 +55,10 @@ namespace DesktopApp1
         {
             VariaveisGlobais.nsu = txtNSU.Text;
             VariaveisGlobais.fullnsu = txtFULL_NSU.Text;
-            VariaveisGlobais.breakLine = txtBREAK_LINE.Text;
+
+            //VariaveisGlobais.breakLine = txtBREAK_LINE.Text;
+            VariaveisGlobais.breakLine = cmbBreakLine.SelectedItem.ToString();
+
             VariaveisGlobais.versaoMensageria = cmbVERSION.SelectedItem.ToString();
 
             ValidarHandler vh = new ValidarHandler();
@@ -76,7 +83,15 @@ namespace DesktopApp1
             //diretorio LOGS
             FuncoesGlobais.checkDirectory(path, "LOGS");
 
+            //seleciona o primeiro item como default
             cmbVERSION.SelectedIndex = 0;
+
+            //adiciona itens ao Break Line drop down
+            cmbBreakLine.Items.Add("*** ACTR ***");
+            cmbBreakLine.Items.Add("MENSAGEM=>");
+            cmbBreakLine.Items.Add("======================================================================================================================================================");
+            cmbBreakLine.SelectedIndex = 0;
+
             //DateTime.UtcNow baseado no fuso horario
             string date = DateTime.Now.ToString("yy-MM-dd");
             txtDATA_LOG.Text = date;
