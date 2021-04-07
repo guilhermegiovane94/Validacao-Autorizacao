@@ -16,7 +16,6 @@ namespace DesktopApp1
         public static string evidenciaPath { get; set; }
         public static string dataLog { get; set; }
         public static string versaoMensageria { get; set; }
-        public static bool is400 { get; set; }
 
         public static List<string> erros = new List<string>();
         //public static List<string> identificadoresTransacao = new List<string>();
