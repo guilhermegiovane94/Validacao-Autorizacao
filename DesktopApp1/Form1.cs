@@ -88,8 +88,11 @@ namespace DesktopApp1
 
             //adiciona itens ao Break Line drop down
             cmbBreakLine.Items.Add("*** ACTR ***");
+
             cmbBreakLine.Items.Add("MENSAGEM=>");
+
             cmbBreakLine.Items.Add("======================================================================================================================================================");
+            
             cmbBreakLine.SelectedIndex = 0;
 
             //DateTime.UtcNow baseado no fuso horario
